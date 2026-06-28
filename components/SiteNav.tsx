@@ -99,7 +99,7 @@ export default function SiteNav() {
         swanni <span className="text-flame">×</span> bobo
       </Link>
 
-      <nav className="flex items-center gap-1 sm:gap-1.5">
+      <nav className="flex items-center gap-1 font-mono text-sm sm:gap-1.5">
         {links.map((l) => {
           const active = pathname === l.path;
           return (
@@ -108,13 +108,16 @@ export default function SiteNav() {
               href={l.path}
               title={l.label}
               aria-label={l.label}
-              className={`grid h-10 w-10 place-items-center rounded-full border-2 transition ${
+              className={`grid h-10 w-10 place-items-center rounded-full border-2 transition sm:h-auto sm:w-auto sm:px-3 sm:py-1 ${
                 active
                   ? "border-ink bg-ink text-bone-card"
                   : "border-transparent text-ink-soft hover:border-ink hover:text-ink"
               }`}
             >
-              <Icon name={iconFor[l.path]} />
+              <span className="sm:hidden">
+                <Icon name={iconFor[l.path]} />
+              </span>
+              <span className="hidden sm:inline">{l.label}</span>
             </Link>
           );
         })}
@@ -122,7 +125,7 @@ export default function SiteNav() {
           onClick={signOut}
           title="로그아웃"
           aria-label="로그아웃"
-          className="grid h-10 w-10 place-items-center rounded-full border-2 border-transparent text-ink-faint transition hover:border-ink hover:text-ink"
+          className="grid h-10 w-10 place-items-center rounded-full border-2 border-transparent text-ink-faint transition hover:border-ink hover:text-ink sm:h-auto sm:w-auto sm:px-2.5 sm:py-1"
         >
           <svg
             viewBox="0 0 24 24"
