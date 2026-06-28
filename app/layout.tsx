@@ -24,7 +24,10 @@ const sans = IBM_Plex_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "swanni × bobo — 욕심부리기",
+  title: {
+    default: "swanni × bobo — 욕심부리기",
+    template: "%s — swanni × bobo",
+  },
   description: "우리가 욕심내는 것들. want it all, till grey and old.",
 };
 

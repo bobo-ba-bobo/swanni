@@ -1,6 +1,7 @@
 import PageShell from "@/components/PageShell";
 import ListClient from "@/components/ListClient";
 
+export const metadata = { title: "먹킷리스트" };
 export const dynamic = "force-dynamic";
 
 export default function EatPage() {
