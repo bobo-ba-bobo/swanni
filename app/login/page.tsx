@@ -23,7 +23,7 @@ export default function LoginPage() {
     });
 
     if (error) {
-      setError("로그인에 실패했어요. 이메일과 비밀번호를 확인해줘요.");
+      setError("로그인 실패. 이메일/비번 다시 확인.");
       setLoading(false);
       return;
     }
@@ -33,47 +33,45 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="relative flex min-h-dvh items-center justify-center overflow-hidden px-6">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-[12%] top-[18%] h-56 w-56 animate-float-slow rounded-full bg-sky-dream/40 blur-3xl" />
-        <div className="absolute right-[14%] top-[30%] h-64 w-64 animate-float rounded-full bg-lavender-dream/40 blur-3xl" />
-        <div className="absolute bottom-[12%] left-[40%] h-52 w-52 animate-float-slow rounded-full bg-peach-soft/50 blur-3xl" />
-      </div>
-
-      <div className="w-full max-w-sm animate-fade-up rounded-3xl border border-white/60 bg-white/55 p-8 shadow-dream backdrop-blur-xl">
-        <div className="mb-7 text-center">
-          <p className="font-display text-4xl tracking-tight text-ink">
-            swanni <span className="text-ink-faint">&</span> bobo
-          </p>
-          <p className="mt-2 text-sm text-ink-soft">우리 둘만의 공간</p>
+    <main className="flex min-h-dvh items-center justify-center px-6">
+      <div className="w-full max-w-sm animate-fade-up">
+        <div className="mb-8">
+          <p className="tag mb-3">swanni × bobo — members only</p>
+          <h1 className="font-display text-6xl leading-[0.85] tracking-tight text-ink">
+            욕심
+            <br />
+            부리기
+          </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
+        <form onSubmit={handleSubmit} className="card space-y-3 p-5">
           <input
             type="email"
             required
-            placeholder="이메일"
+            placeholder="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-ink outline-none transition focus:border-sky-dream focus:bg-white focus:shadow-glow"
+            className="w-full rounded-xl border-2 border-ink bg-bone-soft px-4 py-3 font-mono text-sm text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-flame"
           />
           <input
             type="password"
             required
-            placeholder="비밀번호"
+            placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-ink outline-none transition focus:border-sky-dream focus:bg-white focus:shadow-glow"
+            className="w-full rounded-xl border-2 border-ink bg-bone-soft px-4 py-3 font-mono text-sm text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-flame"
           />
 
-          {error && <p className="px-1 text-sm text-rose-400">{error}</p>}
+          {error && (
+            <p className="font-mono text-sm text-flame">{error}</p>
+          )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-2xl bg-gradient-to-r from-sky-dream via-lavender-dream to-peach-soft py-3 font-medium text-ink shadow-dream transition hover:brightness-105 disabled:opacity-60"
+            className="w-full rounded-xl border-2 border-ink bg-ink py-3 font-mono text-sm font-semibold uppercase tracking-widest text-bone-card transition hover:bg-flame hover:text-bone-card disabled:opacity-50"
           >
-            {loading ? "들어가는 중…" : "로그인"}
+            {loading ? "..." : "enter"}
           </button>
         </form>
       </div>

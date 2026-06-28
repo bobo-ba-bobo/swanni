@@ -12,31 +12,34 @@ body {
 }
 
 body {
-  background: linear-gradient(160deg, #eaf3fb 0%, #f1ecfb 45%, #fdeef0 100%);
-  background-attachment: fixed;
-  color: #3a3a44;
+  background-color: #ece7dd;
+  color: #16150f;
   -webkit-font-smoothing: antialiased;
 }
 
-/* soft custom scrollbar */
+::selection {
+  background: #ff4a1c;
+  color: #fbf8f2;
+}
+
+/* scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(185, 214, 242, 0.6);
-  border-radius: 999px;
-  border: 2px solid transparent;
-  background-clip: content-box;
+  background: #16150f;
+  border: 3px solid #ece7dd;
+  border-radius: 0;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
 @layer components {
-  .glass {
-    @apply rounded-3xl border border-white/60 bg-white/55 shadow-dream backdrop-blur-xl;
+  .card {
+    @apply rounded-2xl border-2 border-ink bg-bone-card shadow-hard;
   }
-  .glass-soft {
-    @apply rounded-2xl border border-white/60 bg-white/45 backdrop-blur-md;
+  .tag {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint;
   }
 }

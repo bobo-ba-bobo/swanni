@@ -51,9 +51,7 @@ export default function ListClient({
     if (!t) return;
     setTitle("");
     const supabase = createClient();
-    await supabase
-      .from("items")
-      .insert({ category, title: t, created_by: me });
+    await supabase.from("items").insert({ category, title: t, created_by: me });
     load();
   }
 
@@ -79,52 +77,54 @@ export default function ListClient({
 
   return (
     <div className="space-y-6">
-      <form onSubmit={add} className="glass flex items-center gap-2 p-2">
+      <form onSubmit={add} className="card flex items-center gap-2 p-2">
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder={placeholder}
-          className="flex-1 bg-transparent px-4 py-2.5 text-ink placeholder:text-ink-faint focus:outline-none"
+          className="flex-1 bg-transparent px-3 py-2.5 text-ink placeholder:text-ink-faint focus:outline-none"
         />
         <button
           type="submit"
-          className="rounded-2xl bg-gradient-to-r from-sky-dream to-lavender-dream px-5 py-2.5 text-sm text-ink shadow-sm transition hover:brightness-105"
+          className="rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide text-bone-card transition hover:bg-flame"
         >
-          추가
+          add
         </button>
       </form>
 
       {loading ? (
-        <p className="py-10 text-center text-sm text-ink-faint">불러오는 중…</p>
+        <p className="py-10 text-center font-mono text-sm text-ink-faint">
+          loading…
+        </p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-2.5">
           {active.length === 0 && (
-            <li className="py-10 text-center text-sm text-ink-faint">
-              아직 아무것도 없어요. 첫 번째를 적어봐요 ✦
+            <li className="card p-8 text-center font-mono text-sm text-ink-faint">
+              아직 비어있음. 첫 번째 욕심 적기 ↑
             </li>
           )}
           {active.map((item, i) => (
             <li
               key={item.id}
-              style={{ animationDelay: `${i * 0.03}s` }}
-              className="glass-soft group flex animate-fade-up items-center gap-3 px-4 py-3.5"
+              style={{ animationDelay: `${i * 0.025}s` }}
+              className="card group flex animate-fade-up items-center gap-3 px-4 py-3.5 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-hard-lg"
             >
               <button
                 onClick={() => toggle(item)}
-                className="grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-sky-dream text-transparent transition hover:bg-sky-mist"
-                aria-label="완료 표시"
+                className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink text-transparent transition hover:bg-flame/20"
+                aria-label="done"
               >
                 ✓
               </button>
               <span className="flex-1 text-ink">{item.title}</span>
               {item.created_by && (
-                <span className="hidden text-xs text-ink-faint sm:inline">
+                <span className="hidden font-mono text-xs text-ink-faint sm:inline">
                   {item.created_by}
                 </span>
               )}
               <button
                 onClick={() => remove(item)}
-                className="text-ink-faint opacity-0 transition hover:text-rose-400 group-hover:opacity-100"
+                className="font-mono text-ink-faint opacity-0 transition hover:text-flame group-hover:opacity-100"
                 aria-label="삭제"
               >
                 ✕
@@ -138,28 +138,28 @@ export default function ListClient({
         <div className="pt-2">
           <button
             onClick={() => setShowDone((s) => !s)}
-            className="text-sm text-ink-soft transition hover:text-ink"
+            className="font-mono text-sm text-ink-soft transition hover:text-ink"
           >
-            끝낸거 {done.length}개 {showDone ? "숨기기 ▴" : "보기 ▾"}
+            done {done.length} {showDone ? "▴" : "▾"}
           </button>
           {showDone && (
             <ul className="mt-3 space-y-2">
               {done.map((item) => (
                 <li
                   key={item.id}
-                  className="group flex items-center gap-3 rounded-2xl px-4 py-3 text-ink-faint"
+                  className="group flex items-center gap-3 rounded-xl border-2 border-ink/15 px-4 py-3 text-ink-faint"
                 >
                   <button
                     onClick={() => toggle(item)}
-                    className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gradient-to-r from-sky-dream to-lavender-dream text-ink"
-                    aria-label="완료 취소"
+                    className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink bg-flame text-bone-card"
+                    aria-label="undo"
                   >
                     ✓
                   </button>
                   <span className="flex-1 line-through">{item.title}</span>
                   <button
                     onClick={() => remove(item)}
-                    className="opacity-0 transition hover:text-rose-400 group-hover:opacity-100"
+                    className="font-mono opacity-0 transition hover:text-flame group-hover:opacity-100"
                     aria-label="삭제"
                   >
                     ✕

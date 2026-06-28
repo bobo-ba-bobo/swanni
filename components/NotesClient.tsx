@@ -63,7 +63,7 @@ export default function NotesClient() {
 
   return (
     <div className="space-y-6">
-      <form onSubmit={add} className="glass space-y-2 p-4">
+      <form onSubmit={add} className="card space-y-2 p-4">
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -73,39 +73,41 @@ export default function NotesClient() {
         <textarea
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          placeholder="여기에 우리 이야기를 적어요…"
+          placeholder="아무 말이나…"
           rows={3}
           className="w-full resize-none bg-transparent px-2 py-1.5 text-ink placeholder:text-ink-faint focus:outline-none"
         />
         <div className="flex justify-end">
           <button
             type="submit"
-            className="rounded-2xl bg-gradient-to-r from-lavender-dream to-peach-soft px-5 py-2.5 text-sm text-ink shadow-sm transition hover:brightness-105"
+            className="rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide text-bone-card transition hover:bg-flame"
           >
-            남기기
+            post
           </button>
         </div>
       </form>
 
       {loading ? (
-        <p className="py-10 text-center text-sm text-ink-faint">불러오는 중…</p>
+        <p className="py-10 text-center font-mono text-sm text-ink-faint">
+          loading…
+        </p>
       ) : items.length === 0 ? (
-        <p className="py-10 text-center text-sm text-ink-faint">
-          아직 노트가 없어요 ✎
+        <p className="py-10 text-center font-mono text-sm text-ink-faint">
+          노트 없음
         </p>
       ) : (
         <div className="columns-1 gap-4 sm:columns-2">
           {items.map((item, i) => (
             <article
               key={item.id}
-              style={{ animationDelay: `${i * 0.04}s` }}
-              className="glass group mb-4 inline-block w-full animate-fade-up break-inside-avoid p-5"
+              style={{ animationDelay: `${i * 0.035}s` }}
+              className="card group mb-4 inline-block w-full animate-fade-up break-inside-avoid p-5"
             >
               <div className="mb-1 flex items-start justify-between gap-2">
                 <h3 className="font-display text-2xl text-ink">{item.title}</h3>
                 <button
                   onClick={() => remove(item)}
-                  className="text-ink-faint opacity-0 transition hover:text-rose-400 group-hover:opacity-100"
+                  className="font-mono text-ink-faint opacity-0 transition hover:text-flame group-hover:opacity-100"
                   aria-label="삭제"
                 >
                   ✕
@@ -115,7 +117,9 @@ export default function NotesClient() {
                 <p className="whitespace-pre-wrap text-ink-soft">{item.body}</p>
               )}
               {item.created_by && (
-                <p className="mt-3 text-xs text-ink-faint">— {item.created_by}</p>
+                <p className="mt-3 font-mono text-xs text-ink-faint">
+                  — {item.created_by}
+                </p>
               )}
             </article>
           ))}

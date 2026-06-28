@@ -16,45 +16,40 @@ export default function SiteNav() {
     router.refresh();
   }
 
+  const links = [
+    ...SECTIONS.map((s) => ({ path: s.path, label: s.label })),
+    { path: "/done", label: "끝낸거" },
+  ];
+
   return (
-    <header className="sticky top-0 z-30 mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-4">
+    <header className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-3 px-5 py-5">
       <Link
         href="/"
-        className="font-display text-2xl tracking-tight text-ink transition hover:opacity-70"
+        className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-ink transition hover:text-flame"
       >
-        swanni <span className="text-ink-faint">&</span> bobo
+        swanni <span className="text-flame">×</span> bobo
       </Link>
 
-      <nav className="flex items-center gap-1 rounded-full border border-white/60 bg-white/50 p-1 text-sm backdrop-blur-md">
-        {SECTIONS.map((s) => {
-          const active = pathname === s.path;
+      <nav className="flex items-center gap-1.5 font-mono text-sm">
+        {links.map((l) => {
+          const active = pathname === l.path;
           return (
             <Link
-              key={s.path}
-              href={s.path}
-              className={`rounded-full px-3 py-1.5 transition ${
+              key={l.path}
+              href={l.path}
+              className={`rounded-full border-2 px-3 py-1 transition ${
                 active
-                  ? "bg-white text-ink shadow-sm"
-                  : "text-ink-soft hover:text-ink"
+                  ? "border-ink bg-ink text-bone-card"
+                  : "border-transparent text-ink-soft hover:border-ink hover:text-ink"
               }`}
             >
-              {s.label}
+              {l.label}
             </Link>
           );
         })}
-        <Link
-          href="/done"
-          className={`rounded-full px-3 py-1.5 transition ${
-            pathname === "/done"
-              ? "bg-white text-ink shadow-sm"
-              : "text-ink-soft hover:text-ink"
-          }`}
-        >
-          끝낸거
-        </Link>
         <button
           onClick={signOut}
-          className="ml-1 rounded-full px-3 py-1.5 text-ink-faint transition hover:text-ink"
+          className="ml-1 rounded-full border-2 border-transparent px-2 py-1 text-ink-faint transition hover:border-ink hover:text-ink"
           title="로그아웃"
         >
           ⏻

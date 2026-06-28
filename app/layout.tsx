@@ -1,28 +1,35 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Gowun_Dodum } from "next/font/google";
+import { Black_Han_Sans, IBM_Plex_Mono, IBM_Plex_Sans_KR } from "next/font/google";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Black_Han_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400",
   variable: "--font-display",
   display: "swap",
 });
 
-const sans = Gowun_Dodum({
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const sans = IBM_Plex_Sans_KR({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "swanni & bobo",
-  description: "우리 둘만의 버킷리스트 — to finish all of them till grey and old",
+  title: "swanni × bobo — 욕심부리기",
+  description: "우리가 욕심내는 것들. want it all, till grey and old.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#eaf3fb",
+  themeColor: "#ece7dd",
   width: "device-width",
   initialScale: 1,
 };
@@ -33,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`${display.variable} ${sans.variable}`}>
+    <html
+      lang="ko"
+      className={`${display.variable} ${mono.variable} ${sans.variable}`}
+    >
       <body className="font-sans">{children}</body>
     </html>
   );
