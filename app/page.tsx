@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import GalleryClient from "@/components/GalleryClient";
 import { createClient } from "@/lib/supabase/server";
 import { SECTIONS, type Category } from "@/lib/types";
 
@@ -88,16 +89,7 @@ export default async function Home() {
           })}
         </section>
 
-        <section className="mt-4 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/gallery"
-            className="card flex items-center justify-between px-6 py-5 transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg"
-          >
-            <span className="font-display text-2xl text-ink">갤러리</span>
-            <span className="font-mono text-sm text-ink-soft">
-              우리 날들 →
-            </span>
-          </Link>
+        <section className="mt-4">
           <Link
             href="/done"
             className="card flex items-center justify-between px-6 py-5 transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg"
@@ -107,6 +99,19 @@ export default async function Home() {
               이미 주운 것들 →
             </span>
           </Link>
+        </section>
+
+        <section className="mt-14">
+          <Link
+            href="/gallery"
+            className="group mb-4 flex items-baseline justify-between"
+          >
+            <span className="font-display text-3xl text-ink">갤러리</span>
+            <span className="font-mono text-sm text-ink-soft transition group-hover:text-flame">
+              달력 전체 보기 →
+            </span>
+          </Link>
+          <GalleryClient lockMonth />
         </section>
       </main>
     </div>

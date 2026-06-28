@@ -20,9 +20,24 @@ const BUCKET = "gallery";
 const pad = (n: number) => String(n).padStart(2, "0");
 const ymd = (y: number, m: number, d: number) => `${y}-${pad(m)}-${pad(d)}`;
 
-export default function GalleryClient() {
-  const [year, setYear] = useState(MIN_YEAR);
-  const [month, setMonth] = useState(MIN_MONTH);
+function initialMonth() {
+  const n = new Date();
+  let y = n.getFullYear();
+  let m = n.getMonth() + 1;
+  if (y < MIN_YEAR || (y === MIN_YEAR && m < MIN_MONTH)) {
+    y = MIN_YEAR;
+    m = MIN_MONTH;
+  }
+  return { y, m };
+}
+
+export default function GalleryClient({
+  lockMonth = false,
+}: {
+  lockMonth?: boolean;
+}) {
+  const [year, setYear] = useState(() => initialMonth().y);
+  const [month, setMonth] = useState(() => initialMonth().m);
   const [photosByDay, setPhotosByDay] = useState<Record<string, Photo[]>>({});
   const [captions, setCaptions] = useState<Record<string, string>>({});
   const [selected, setSelected] = useState<string | null>(null);
@@ -126,24 +141,30 @@ export default function GalleryClient() {
   return (
     <div>
       {/* month switcher */}
-      <div className="mb-4 flex items-center justify-between">
-        <button
-          onClick={prev}
-          disabled={atMin}
-          className="rounded-full border-2 border-ink px-3 py-1 font-mono text-sm transition hover:bg-ink hover:text-bone-card disabled:cursor-not-allowed disabled:opacity-25"
-        >
-          ←
-        </button>
-        <p className="font-display text-2xl text-ink">
+      {lockMonth ? (
+        <p className="mb-4 font-display text-2xl text-ink">
           {year}.{pad(month)}
         </p>
-        <button
-          onClick={next}
-          className="rounded-full border-2 border-ink px-3 py-1 font-mono text-sm transition hover:bg-ink hover:text-bone-card"
-        >
-          →
-        </button>
-      </div>
+      ) : (
+        <div className="mb-4 flex items-center justify-between">
+          <button
+            onClick={prev}
+            disabled={atMin}
+            className="rounded-full border-2 border-ink px-3 py-1 font-mono text-sm transition hover:bg-ink hover:text-bone-card disabled:cursor-not-allowed disabled:opacity-25"
+          >
+            ←
+          </button>
+          <p className="font-display text-2xl text-ink">
+            {year}.{pad(month)}
+          </p>
+          <button
+            onClick={next}
+            className="rounded-full border-2 border-ink px-3 py-1 font-mono text-sm transition hover:bg-ink hover:text-bone-card"
+          >
+            →
+          </button>
+        </div>
+      )}
 
       <div className="mb-1 grid grid-cols-7 gap-1.5">
         {WEEKDAYS.map((w) => (
