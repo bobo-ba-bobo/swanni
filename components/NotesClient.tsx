@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { useDisplayName } from "@/lib/useUser";
+import { useDisplayName, toDisplayName } from "@/lib/useUser";
 import type { Item } from "@/lib/types";
 
 export default function NotesClient() {
@@ -118,7 +118,7 @@ export default function NotesClient() {
               )}
               {item.created_by && (
                 <p className="mt-3 font-mono text-xs text-ink-faint">
-                  — {item.created_by}
+                  — {toDisplayName(item.created_by)}
                 </p>
               )}
             </article>

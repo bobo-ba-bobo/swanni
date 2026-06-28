@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { useDisplayName } from "@/lib/useUser";
+import { useDisplayName, toDisplayName } from "@/lib/useUser";
 import type { Category, Item } from "@/lib/types";
 
 export default function ListClient({
@@ -119,7 +119,7 @@ export default function ListClient({
               <span className="flex-1 text-ink">{item.title}</span>
               {item.created_by && (
                 <span className="hidden font-mono text-xs text-ink-faint sm:inline">
-                  {item.created_by}
+                  {toDisplayName(item.created_by)}
                 </span>
               )}
               <button
