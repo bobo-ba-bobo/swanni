@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import GalleryClient from "@/components/GalleryClient";
+import Dday from "@/components/Dday";
 import { createClient } from "@/lib/supabase/server";
 import { SECTIONS, type Category } from "@/lib/types";
 
@@ -46,6 +47,7 @@ export default async function Home() {
 
       <main className="mx-auto w-full max-w-4xl px-5 pb-24">
         <section className="animate-fade-up pt-14 sm:pt-20">
+          <Dday className="mb-5" />
           <p className="tag mb-5">우리가 욕심내는 것들 — swanni × bobo</p>
           <h1 className="font-display text-[20vw] leading-[0.82] tracking-tight text-ink sm:text-[150px]">
             욕심
