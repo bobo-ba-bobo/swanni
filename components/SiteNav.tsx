@@ -18,6 +18,7 @@ export default function SiteNav() {
 
   const links = [
     ...SECTIONS.map((s) => ({ path: s.path, label: s.label })),
+    { path: "/gallery", label: "갤러리" },
     { path: "/done", label: "끝낸거" },
   ];
 

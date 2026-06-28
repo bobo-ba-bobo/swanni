@@ -11,6 +11,8 @@
 2. 프로젝트가 생성되면 좌측 **SQL Editor** 로 이동.
 3. 이 repo의 `supabase/schema.sql` 내용을 전부 붙여넣고 **RUN**.
    - `items` 테이블 + RLS 정책 + 실시간 publication 이 한 번에 세팅됩니다.
+4. 갤러리(사진 캘린더)를 쓰려면 `supabase/gallery.sql` 도 같은 방식으로 붙여넣고 **RUN**.
+   - `gallery_days` / `gallery_photos` 테이블 + RLS + `gallery` Storage 버킷(비공개) + 정책이 세팅됩니다.
 
 ## 2. 우리 둘 계정 만들기
 
