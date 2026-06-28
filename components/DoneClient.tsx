@@ -66,7 +66,7 @@ export default function DoneClient() {
           style={{ animationDelay: `${i * 0.025}s` }}
           className="card group flex animate-fade-up items-center gap-3 px-4 py-3.5"
         >
-          <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink bg-flame text-bone-card">
+          <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink bg-mint text-bone-card">
             ✓
           </span>
           <span className="rounded-full border-2 border-ink px-2 py-0.5 font-mono text-xs text-ink">

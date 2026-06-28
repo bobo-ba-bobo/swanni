@@ -38,7 +38,7 @@ export default async function Home() {
       <SiteNav />
 
       {/* marquee band */}
-      <div className="overflow-hidden border-y-2 border-ink bg-flame py-2">
+      <div className="overflow-hidden border-y-2 border-ink bg-mint py-2">
         <div className="flex w-max animate-marquee whitespace-nowrap font-mono text-sm font-medium uppercase tracking-widest text-bone-card">
           <span>{MARQUEE.repeat(6)}</span>
           <span>{MARQUEE.repeat(6)}</span>
@@ -75,7 +75,7 @@ export default async function Home() {
                   <span className="font-mono text-sm text-ink-faint">
                     0{i + 1}
                   </span>
-                  <span className="font-mono text-lg text-ink transition group-hover:text-flame">
+                  <span className="font-mono text-lg text-ink transition group-hover:text-mint">
                     ↗
                   </span>
                 </div>
@@ -109,7 +109,7 @@ export default async function Home() {
             className="group mb-4 flex items-baseline justify-between"
           >
             <span className="font-display text-3xl text-ink">갤러리</span>
-            <span className="font-mono text-sm text-ink-soft transition group-hover:text-flame">
+            <span className="font-mono text-sm text-ink-soft transition group-hover:text-mint">
               달력 전체 보기 →
             </span>
           </Link>

@@ -51,7 +51,7 @@ export default function LoginPage() {
             placeholder="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl border-2 border-ink bg-bone-soft px-4 py-3 font-mono text-sm text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-flame"
+            className="w-full rounded-xl border-2 border-ink bg-bone-soft px-4 py-3 font-mono text-sm text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-mint"
           />
           <input
             type="password"
@@ -59,17 +59,17 @@ export default function LoginPage() {
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl border-2 border-ink bg-bone-soft px-4 py-3 font-mono text-sm text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-flame"
+            className="w-full rounded-xl border-2 border-ink bg-bone-soft px-4 py-3 font-mono text-sm text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-mint"
           />
 
           {error && (
-            <p className="font-mono text-sm text-flame">{error}</p>
+            <p className="font-mono text-sm text-mint">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl border-2 border-ink bg-ink py-3 font-mono text-sm font-semibold uppercase tracking-widest text-bone-card transition hover:bg-flame hover:text-bone-card disabled:opacity-50"
+            className="w-full rounded-xl border-2 border-ink bg-ink py-3 font-mono text-sm font-semibold uppercase tracking-widest text-bone-card transition hover:bg-mint hover:text-bone-card disabled:opacity-50"
           >
             {loading ? "..." : "enter"}
           </button>

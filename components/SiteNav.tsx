@@ -94,9 +94,9 @@ export default function SiteNav() {
     <header className="mx-auto flex w-full max-w-4xl items-center justify-between gap-3 px-5 py-5">
       <Link
         href="/"
-        className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-ink transition hover:text-flame"
+        className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-ink transition hover:text-mint"
       >
-        swanni <span className="text-flame">×</span> bobo
+        swanni <span className="text-mint">×</span> bobo
       </Link>
 
       <nav className="flex items-center gap-1 font-mono text-sm sm:gap-1.5">

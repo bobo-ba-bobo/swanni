@@ -22,7 +22,7 @@ export default function Dday({ className = "" }: { className?: string }) {
     <span
       className={`inline-flex items-center gap-2 rounded-full border-2 border-ink bg-bone-card px-3 py-1 font-mono text-sm text-ink shadow-hard ${className}`}
     >
-      <span className="h-2 w-2 rounded-full bg-flame" />
+      <span className="h-2 w-2 rounded-full bg-mint" />
       <span className="font-semibold">
         D+{days ?? "—"}
       </span>

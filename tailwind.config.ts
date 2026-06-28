@@ -8,20 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // hip editorial — bone paper, ink black, one loud flame accent
+        // hip editorial — white paper, ink black, one fresh mint accent
         bone: {
-          DEFAULT: "#ece7dd",
-          soft: "#f4f0e8",
-          card: "#fbf8f2",
+          DEFAULT: "#ffffff",
+          soft: "#f4f5f4",
+          card: "#ffffff",
         },
         ink: {
           DEFAULT: "#16150f",
           soft: "#56524a",
-          faint: "#928c7e",
+          faint: "#9a968d",
         },
-        flame: {
-          DEFAULT: "#ff4a1c",
-          soft: "#ff7a52",
+        mint: {
+          DEFAULT: "#10c8a0",
+          soft: "#6fe3ca",
         },
       },
       fontFamily: {
@@ -32,7 +32,7 @@ const config: Config = {
       boxShadow: {
         hard: "4px 4px 0 0 #16150f",
         "hard-lg": "7px 7px 0 0 #16150f",
-        "hard-flame": "4px 4px 0 0 #ff4a1c",
+        "hard-mint": "4px 4px 0 0 #10c8a0",
       },
       keyframes: {
         "fade-up": {

@@ -80,7 +80,7 @@ export default function NotesClient() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide text-bone-card transition hover:bg-flame"
+            className="rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide text-bone-card transition hover:bg-mint"
           >
             post
           </button>
@@ -107,7 +107,7 @@ export default function NotesClient() {
                 <h3 className="font-display text-2xl text-ink">{item.title}</h3>
                 <button
                   onClick={() => remove(item)}
-                  className="font-mono text-ink-faint opacity-0 transition hover:text-flame group-hover:opacity-100"
+                  className="font-mono text-ink-faint opacity-0 transition hover:text-mint group-hover:opacity-100"
                   aria-label="삭제"
                 >
                   ✕

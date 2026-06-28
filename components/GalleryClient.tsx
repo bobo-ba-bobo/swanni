@@ -186,13 +186,13 @@ export default function GalleryClient({
               key={key}
               onClick={() => setSelected(key)}
               className={`card flex aspect-square flex-col overflow-hidden p-1.5 text-left transition-all duration-150 hover:-translate-y-0.5 hover:shadow-hard-lg ${
-                isToday ? "ring-2 ring-flame ring-offset-2 ring-offset-bone" : ""
+                isToday ? "ring-2 ring-mint ring-offset-2 ring-offset-bone" : ""
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs text-ink-soft">{d}</span>
                 {photos.length > 0 && (
-                  <span className="rounded-full bg-flame px-1.5 font-mono text-[10px] text-bone-card">
+                  <span className="rounded-full bg-mint px-1.5 font-mono text-[10px] text-bone-card">
                     {photos.length}
                   </span>
                 )}
@@ -340,7 +340,7 @@ function DayModal({
           onBlur={saveCaption}
           placeholder="이 날 뭐했지…"
           rows={2}
-          className="w-full resize-none rounded-xl border-2 border-ink bg-bone-soft px-3 py-2 text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-flame"
+          className="w-full resize-none rounded-xl border-2 border-ink bg-bone-soft px-3 py-2 text-ink outline-none transition placeholder:text-ink-faint focus:bg-bone-card focus:shadow-hard-mint"
         />
         <p className="mb-4 mt-1 h-4 font-mono text-xs text-ink-faint">
           {saving ? "저장 중…" : ""}

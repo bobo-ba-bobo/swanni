@@ -12,14 +12,14 @@ body {
 }
 
 body {
-  background-color: #ece7dd;
+  background-color: #ffffff;
   color: #16150f;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #ff4a1c;
-  color: #fbf8f2;
+  background: #10c8a0;
+  color: #ffffff;
 }
 
 /* scrollbar */
@@ -28,7 +28,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: #16150f;
-  border: 3px solid #ece7dd;
+  border: 3px solid #ffffff;
   border-radius: 0;
 }
 ::-webkit-scrollbar-track {

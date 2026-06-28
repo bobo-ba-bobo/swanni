@@ -86,7 +86,7 @@ export default function ListClient({
         />
         <button
           type="submit"
-          className="rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide text-bone-card transition hover:bg-flame"
+          className="rounded-xl border-2 border-ink bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wide text-bone-card transition hover:bg-mint"
         >
           add
         </button>
@@ -111,7 +111,7 @@ export default function ListClient({
             >
               <button
                 onClick={() => toggle(item)}
-                className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink text-transparent transition hover:bg-flame/20"
+                className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink text-transparent transition hover:bg-mint/20"
                 aria-label="done"
               >
                 ✓
@@ -124,7 +124,7 @@ export default function ListClient({
               )}
               <button
                 onClick={() => remove(item)}
-                className="font-mono text-ink-faint opacity-0 transition hover:text-flame group-hover:opacity-100"
+                className="font-mono text-ink-faint opacity-0 transition hover:text-mint group-hover:opacity-100"
                 aria-label="삭제"
               >
                 ✕
@@ -151,7 +151,7 @@ export default function ListClient({
                 >
                   <button
                     onClick={() => toggle(item)}
-                    className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink bg-flame text-bone-card"
+                    className="grid h-6 w-6 shrink-0 place-items-center rounded-md border-2 border-ink bg-mint text-bone-card"
                     aria-label="undo"
                   >
                     ✓
@@ -159,7 +159,7 @@ export default function ListClient({
                   <span className="flex-1 line-through">{item.title}</span>
                   <button
                     onClick={() => remove(item)}
-                    className="font-mono opacity-0 transition hover:text-flame group-hover:opacity-100"
+                    className="font-mono opacity-0 transition hover:text-mint group-hover:opacity-100"
                     aria-label="삭제"
                   >
                     ✕
